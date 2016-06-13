@@ -9,9 +9,9 @@ class selinux ($mode='disabled') inherits selinux::params {
   }
 
   $current_mode = $::selinux? {
-    'false' => 'disabled',
-    false   => 'disabled',
-    default => $::selinux_current_mode,
+    bool2boolstr(false) => 'disabled',
+    false               => 'disabled',
+    default             => $::selinux_current_mode,
   }
 
   file { '/etc/selinux/config':
