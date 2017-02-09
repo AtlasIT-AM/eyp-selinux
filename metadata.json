@@ -1,6 +1,6 @@
 {
   "name": "eyp-selinux",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "eyp",
   "summary": "manages SELinux mode",
   "license": "Apache-2.0",
