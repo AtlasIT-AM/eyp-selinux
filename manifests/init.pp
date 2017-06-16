@@ -31,6 +31,17 @@ class selinux ($mode='disabled') inherits selinux::params {
       {
         case $current_mode
         {
+          'disabled':
+          {
+            notify { "Reboot required to enable SELinux": }
+          }
+          'permissive':
+          {
+            exec { "setenforce ${mode}":
+              command => 'setenforce 1',
+              require => Package['libselinux-utils'],
+            }
+          }
           default: { fail('i\'m too lazy to implement this') }
         }
       }
@@ -64,6 +75,10 @@ class selinux ($mode='disabled') inherits selinux::params {
               command => 'setenforce 0',
               require => Package['libselinux-utils'],
             }
+          }
+          'disabled':
+          {
+            notify { "Reboot required to enable SELinux, current mode: ${current_mode}": }
           }
           default: { fail('i\'m too lazy to implement this') }
         }

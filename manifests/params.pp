@@ -1,5 +1,9 @@
 class selinux::params {
 
+  $policycoreutils = 'policycoreutils'
+  $checkpolicy = 'checkpolicy'
+  $policycoreutils_build = 'policycoreutils-python'
+
   case $::osfamily
   {
     'redhat':
