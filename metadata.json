@@ -2,11 +2,11 @@
   "name": "eyp-selinux",
   "version": "0.1.13",
   "author": "eyp",
-  "summary": "manages SELinux mode",
+  "summary": "SELinux management",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/NTTCom-MS/eyp-selinux",
   "project_page": null,
-  "issues_url": null,
+  "issues_url": "https://github.com/NTTCom-MS/eyp-selinux/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0"},
     {"name":"eyp/eyplib","version_requirement":">= 0.1.6 < 0.2.0"}
