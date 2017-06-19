@@ -33,7 +33,7 @@ class selinux ($mode='disabled') inherits selinux::params {
         {
           'disabled':
           {
-            notify { "Reboot required to enable SELinux": }
+            notify { 'Reboot required to enable SELinux': }
           }
           'permissive':
           {
@@ -42,7 +42,7 @@ class selinux ($mode='disabled') inherits selinux::params {
               require => Package['libselinux-utils'],
             }
           }
-          default: { fail('i\'m too lazy to implement this') }
+          default: { fail('this shoould not happen') }
         }
       }
       'disabled':
@@ -62,7 +62,7 @@ class selinux ($mode='disabled') inherits selinux::params {
           {
             notify { "Reboot required to disable SELinux, current mode: ${current_mode}": }
           }
-          default: { fail('i\'m too lazy to implement this') }
+          default: { fail('this shoould not happen') }
         }
       }
       'permissive':
@@ -80,10 +80,10 @@ class selinux ($mode='disabled') inherits selinux::params {
           {
             notify { "Reboot required to enable SELinux, current mode: ${current_mode}": }
           }
-          default: { fail('i\'m too lazy to implement this') }
+          default: { fail('this shoould not happen') }
         }
       }
-      default: { fail('the fuck is this fuckery? - supported modes: enforcing, permissive and disabled') }
+      default: { fail('supported modes: enforcing, permissive and disabled') }
     }
   }
 }
