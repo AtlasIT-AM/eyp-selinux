@@ -22,7 +22,7 @@ Disables SELinux, what else anyone would like to do anyway?
 
 ## Module Description
 
-This module is meant to disables SELinux. What else anyone would like to do anyway?
+* If SELinux is disabled and you want to switch to permissive or enforcing you are required to reboot the system
 
 ## Setup
 
