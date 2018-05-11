@@ -1,0 +1,3 @@
+class { 'selinux':
+  mode => 'disabled',
+}
