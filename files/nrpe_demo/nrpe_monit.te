@@ -1,0 +1,175 @@
+
+module nrpe_monit 1.0.12;
+
+require {
+	type proc_net_t;
+	type user_tmp_t;
+	type home_root_t;
+	type var_t;
+	type tmp_t;
+	type auditd_log_t;
+	type usr_t;
+	type boot_t;
+	type nagios_etc_t;
+	type var_log_t;
+	type device_t;
+	type root_t;
+	type nrpe_t;
+	type sudo_exec_t;
+	type tmpfs_t;
+	type mount_exec_t;
+	type mount_var_run_t;
+	type nfs_t;
+	type unconfined_t;
+	type rpcbind_t;
+	type init_t;
+	type auditd_t;
+	type syslogd_t;
+	type NetworkManager_t;
+	type initrc_t;
+	type system_dbusd_t;
+	type tuned_t;
+	type snmpd_t;
+	type udev_t;
+	type systemd_logind_t;
+	type httpd_t;
+	type policykit_t;
+	type puppetagent_t;
+	type irqbalance_t;
+	type httpd_rotatelogs_t;
+	type postfix_pickup_t;
+	type postfix_master_t;
+	type postfix_qmgr_t;
+	type postfix_bounce_t;
+	type postfix_smtp_t;
+	type sshd_t;
+	type crond_t;
+	type lvm_t;
+	type ntpd_t;
+	type rpcd_t;
+	type gssproxy_t;
+	type dhcpc_t;
+	class capability { audit_write dac_override };
+	class file { create execute execute_no_trans getattr open read unlink write };
+	class dir { add_name getattr open read remove_name search write };
+	class netlink_audit_socket { create nlmsg_relay };
+	class process getattr;
+}
+
+#============= nrpe_t ==============
+allow nrpe_t mount_exec_t:file { execute_no_trans open getattr execute read };
+allow nrpe_t mount_var_run_t:file { open getattr read write };
+allow nrpe_t nfs_t:dir { add_name open write getattr read search remove_name };
+allow nrpe_t nfs_t:file { open read create getattr write unlink };
+allow nrpe_t proc_net_t:file { open read getattr };
+
+allow nrpe_t dhcpc_t:process getattr;
+allow nrpe_t NetworkManager_t:process getattr;
+allow nrpe_t auditd_t:process getattr;
+allow nrpe_t crond_t:process getattr;
+allow nrpe_t gssproxy_t:process getattr;
+allow nrpe_t httpd_rotatelogs_t:process getattr;
+allow nrpe_t httpd_t:process getattr;
+allow nrpe_t init_t:process getattr;
+allow nrpe_t initrc_t:process getattr;
+allow nrpe_t irqbalance_t:process getattr;
+allow nrpe_t lvm_t:process getattr;
+allow nrpe_t ntpd_t:process getattr;
+allow nrpe_t policykit_t:process getattr;
+allow nrpe_t postfix_master_t:process getattr;
+allow nrpe_t postfix_pickup_t:process getattr;
+allow nrpe_t postfix_qmgr_t:process getattr;
+allow nrpe_t postfix_bounce_t:process getattr;
+allow nrpe_t postfix_smtp_t:process getattr;
+allow nrpe_t proc_net_t:file read;
+allow nrpe_t puppetagent_t:process getattr;
+allow nrpe_t rpcbind_t:process getattr;
+allow nrpe_t rpcd_t:process getattr;
+allow nrpe_t self:process getattr;
+allow nrpe_t snmpd_t:process getattr;
+allow nrpe_t sshd_t:process getattr;
+allow nrpe_t syslogd_t:process getattr;
+allow nrpe_t system_dbusd_t:process getattr;
+allow nrpe_t systemd_logind_t:process getattr;
+allow nrpe_t tuned_t:process getattr;
+allow nrpe_t udev_t:process getattr;
+allow nrpe_t unconfined_t:process getattr;
+
+
+allow nrpe_t auditd_log_t:dir search;
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t auditd_log_t:dir { add_name getattr open read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t auditd_log_t:file { create getattr open unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t boot_t:dir { add_name remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t boot_t:file { create unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t device_t:dir { add_name remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t device_t:file { create getattr open unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t home_root_t:dir { add_name read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t home_root_t:file { create getattr open unlink write };
+allow nrpe_t nagios_etc_t:dir read;
+allow nrpe_t nagios_etc_t:file { getattr open read };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t root_t:dir { add_name remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t root_t:file { create getattr open unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t self:capability audit_write;
+allow nrpe_t self:capability dac_override;
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t self:netlink_audit_socket { create nlmsg_relay };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t sudo_exec_t:file { execute execute_no_trans getattr open read };
+allow nrpe_t tmp_t:dir { add_name read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t tmp_t:file { create open unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t tmpfs_t:dir { add_name read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t tmpfs_t:file { create getattr open read unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t user_tmp_t:dir { add_name read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t user_tmp_t:file { create open unlink };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t usr_t:dir { add_name remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t usr_t:file { create unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t var_log_t:dir { add_name read remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t var_log_t:file { create open unlink write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t var_t:dir { add_name remove_name write };
+
+#!!!! This avc is allowed in the current policy
+allow nrpe_t var_t:file { create getattr open unlink write };

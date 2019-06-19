@@ -1,6 +1,6 @@
 {
   "name": "eyp-selinux",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "author": "eyp",
   "summary": "SELinux management",
   "license": "Apache-2.0",
@@ -14,11 +14,11 @@
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "6", "7" ]
+      "operatingsystemrelease": [ "6", "7", "8" ]
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "14.04", "16.04" ]
+      "operatingsystemrelease": [ "14.04", "16.04", "18.04" ]
     }
   ],
   "requirements": [

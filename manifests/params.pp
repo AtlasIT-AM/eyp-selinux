@@ -11,7 +11,7 @@ class selinux::params {
       $selinux_utils='libselinux-utils'
       case $::operatingsystemrelease
       {
-        /^[5-7].*$/:
+        /^[5-8].*$/:
         {
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
@@ -26,7 +26,7 @@ class selinux::params {
       {
         case $::operatingsystemrelease
         {
-          /^14.*$/:
+          /^1[468].*$/:
           {
           }
           default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }

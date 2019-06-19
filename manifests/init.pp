@@ -1,4 +1,6 @@
-class selinux ($mode='disabled') inherits selinux::params {
+class selinux (
+                $mode = 'disabled'
+              ) inherits selinux::params {
 
   Exec {
     path => '/bin:/sbin:/usr/bin:/usr/sbin',

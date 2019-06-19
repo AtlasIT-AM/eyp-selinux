@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.15
+
+* added RHEL8 support
+
 ## 0.1.14
 
 * added debug info
